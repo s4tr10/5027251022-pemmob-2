@@ -1,27 +1,43 @@
-# 📱 Tugas-Pemweb-Beda-Halaman (Android App)
+# 🧮 My Calculator (Android App)
 
-Aplikasi ini adalah proyek Android berbasis **Kotlin** yang mendemonstrasikan perpindahan dan pengelolaan data antar halaman (*Activity*). Aplikasi ini awalnya dirancang berdasarkan konsep pengiriman data teks sederhana[cite: 2], namun telah dikembangkan menjadi aplikasi profil mahasiswa dengan antarmuka yang modern dan fungsionalitas tingkat lanjut[cite: 1].
+Aplikasi kalkulator sederhana bergaya modern (terinspirasi dari kalkulator bawaan Android/iOS) yang dibangun secara *native* untuk platform Android. Aplikasi ini menggunakan logika matematika dasar yang efisien tanpa memerlukan *library* pihak ketiga.
 
 ## ✨ Fitur Utama
 
-*   **Desain Material Modern:** Menggunakan `TextInputLayout` dan `CardView` untuk tampilan *form* dan kartu profil yang elegan.
-*   **Explicit Intent:** Mengirim kumpulan data kompleks (Nama, NRP, Jurusan, Gender, dan URI Foto) dari halaman input[cite: 2] menuju halaman hasil profil[cite: 1].
-*   **Akses Galeri (Image Picker):** Memanfaatkan `ActivityResultLauncher` untuk memilih foto profil secara aman dari memori perangkat pengguna.
-*   **Implicit Intent (Bagikan Data):** Menyediakan fitur *Share* menggunakan `ACTION_SEND` untuk mengirim teks profil ke aplikasi lain seperti WhatsApp atau Gmail.
-*   **Manajemen Siklus Hidup (Lifecycle):** Menerapkan fungsi `finish()` untuk menutup halaman dengan aman dan pembuktian pembersihan memori melalui pengamatan logcat pada `onDestroy()`.
-*   **Validasi Input:** Pencegahan *error* dengan memastikan kolom wajib isi tidak dibiarkan kosong oleh pengguna.
+* **Operasi Aritmatika Dasar:** Mendukung Penjumlahan (+), Pengurangan (-), Perkalian (*), dan Pembagian (/).
+* **Desain UI Modern & Responsif:** Menggunakan perpaduan `RelativeLayout` dan `GridLayout` untuk susunan tombol yang rapi dan proporsional di berbagai ukuran layar, dipadukan dengan tema gelap (Dark Theme).
+* **Manajemen Desimal Pintar:** Mencegah *user* memasukkan titik desimal ganda dalam satu bilangan.
+* **Penanganan Error (Divide by Zero):** Mencegah aplikasi *crash* saat pengguna mencoba membagi angka dengan nol (0) dengan cara menampilkan pesan "Error" pada layar.
+* **Fitur Penghapusan:** Dilengkapi tombol **AC** (All Clear) untuk mereset seluruh sesi perhitungan dan **DEL** (Delete) untuk menghapus satu karakter/angka terakhir.
+* **Pembersihan Angka Desimal:** Menghilangkan angka `.0` di belakang koma jika hasil perhitungan merupakan bilangan bulat (contoh: hasil `5.0` akan ditampilkan sebagai `5`).
 
 ## 🚀 Teknologi yang Digunakan
 
-*   **Bahasa Pemrograman:** Kotlin
-*   **Platform Utama:** Android SDK
-*   **Desain Antarmuka:** XML (Material Design Components)
-*   **Lingkungan Pengembangan:** Android Studio
+* **Bahasa Pemrograman:** Kotlin
+* **Antarmuka Pengguna (UI):** XML
+* **Lingkungan Pengembangan:** Android Studio
 
-## 💡 Cara Menjalankan Aplikasi
+## 📂 Struktur Folder Proyek
 
-1.  Unduh atau lakukan *clone* pada repositori ini ke dalam komputer Anda.
-2.  Buka folder proyek **Tugas-Pemweb-Beda-Halaman** menggunakan aplikasi **Android Studio**.
-3.  Tunggu beberapa saat hingga proses sinkronisasi **Gradle** selesai sepenuhnya.
-4.  Jalankan aplikasi dengan menekan tombol **Run (Shift + F10)**.
-5.  Pilih *Emulator* bawaan atau hubungkan *smartphone* Android fisik Anda melalui kabel USB.
+Berikut adalah struktur direktori utama pada proyek ini:
+
+```text
+MyCalculator/
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/example/mycalculator/
+│   │   │   │   └── MainActivity.kt        # File logika utama (Kotlin)
+│   │   │   ├── res/
+│   │   │   │   ├── layout/
+│   │   │   │   │   └── activity_main.xml  # File tampilan antarmuka (XML)
+│   │   │   │   ├── values/
+│   │   │   │   │   ├── colors.xml         # Konfigurasi warna
+│   │   │   │   │   ├── strings.xml        # Konfigurasi teks statis
+│   │   │   │   │   └── themes.xml         # Tema aplikasi
+│   │   │   │   ├── drawable/              # Aset gambar/ikon
+│   │   │   │   └── mipmap/                # Ikon peluncur aplikasi (App Icon)
+│   │   │   └── AndroidManifest.xml        # Konfigurasi perizinan & komponen inti
+│   └── build.gradle.kts                   # Konfigurasi dependensi level modul
+├── build.gradle.kts                       # Konfigurasi dependensi level proyek
+└── README.md                              # Dokumentasi proyek
