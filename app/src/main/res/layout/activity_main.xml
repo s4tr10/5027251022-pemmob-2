@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#202020"> <!-- Latar gelap -->
+
+    <!-- 1. Grid Tombol -->
+    <!-- Diletakkan menempel di bagian paling bawah layar -->
+    <GridLayout
+        android:id="@+id/gridButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:columnCount="4"
+        android:rowCount="5"
+        android:padding="8dp">
+
+        <!-- Baris 1 -->
+        <Button android:text="AC" android:onClick="onClearClick" android:textColor="#FF9800" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="2" android:layout_columnSpan="2" android:layout_margin="4dp"/>
+        <Button android:text="DEL" android:onClick="onDeleteClick" android:textColor="#FF9800" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+        <Button android:text="/" android:onClick="onOperatorClick" android:textColor="#FF9800" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <!-- Baris 2 -->
+        <Button android:text="7" android:onClick="onDigitClick" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+        <Button android:text="8" android:onClick="onDigitClick" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+        <Button android:text="9" android:onClick="onDigitClick" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+        <Button android:text="*" android:onClick="onOperatorClick" android:textColor="#FF9800" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <!-- Baris 3 -->
+        <Button android:text="4" android:onClick="onDigitClick" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+        <Button android:text="5" android:onClick="onDigitClick" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+        <Button android:text="6" android:onClick="onDigitClick" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+        <Button android:text="-" android:onClick="onOperatorClick" android:textColor="#FF9800" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <!-- Baris 4 -->
+        <Button android:text="1" android:onClick="onDigitClick" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+        <Button android:text="2" android:onClick="onDigitClick" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+        <Button android:text="3" android:onClick="onDigitClick" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+        <Button android:text="+" android:onClick="onOperatorClick" android:textColor="#FF9800" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <!-- Baris 5 -->
+        <Button android:text="0" android:onClick="onDigitClick" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="2" android:layout_columnSpan="2" android:layout_margin="4dp"/>
+        <Button android:text="." android:onClick="onDigitClick" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+        <Button android:text="=" android:onClick="onEqualClick" android:backgroundTint="#FF9800" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_height="80dp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+    </GridLayout>
+
+    <!-- 2. Layar Kalkulator -->
+    <!-- Disetel agar mengisi ruang kosong (berada di atas grid tombol, namun nempel ke ujung atas layar) -->
+    <TextView
+        android:id="@+id/tvDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/gridButtons"
+        android:layout_alignParentTop="true"
+        android:gravity="bottom|end"
+        android:padding="32dp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="64sp"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform" />
+
+</RelativeLayout>
